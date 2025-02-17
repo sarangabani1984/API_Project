@@ -9,7 +9,7 @@ api_key = "AIzaSyDKHoaT4TjFd01BJkgLlLm2s-RTeBQhdJM"
 youtube = build("youtube", "v3", developerKey=api_key)
 
 # Replace 'YOUR_SEARCH_QUERY' with your search term
-search_query = "Data engineering Project"
+search_query = "think & grow rich book review"
 
 # Step 1: Search for videos
 search_response = youtube.search().list(
@@ -36,6 +36,7 @@ for item in video_stats_response['items']:
         "Video ID": item['id'],
         "Channel ID": item['snippet']['channelId'],
         "Title": item['snippet']['title'],
+        "publishedAt": item['snippet']['publishedAt'],
         "View Count": int(item['statistics'].get('viewCount', 0))  # Convert to int for sorting
     })
 
